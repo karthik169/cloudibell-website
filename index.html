@@ -23,7 +23,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Salesforce Services</a></li>
-                <li><a href="#contact" class="btn-primary">Contact Us</a></li>
+                <li><a href="contact.html" class="btn-primary">Contact Us</a></li>
             </ul>
         </nav>
     </header>
@@ -36,7 +36,7 @@
             <p class="hero-sub">Cloudibell Tech plans, builds and supports Salesforce orgs for growing businesses —
                 from first implementation to the integrations that keep Sales, Service and Marketing in sync.</p>
             <div class="hero-actions">
-                <a href="#contact" class="btn btn-solid">Book a free consultation</a>
+                <a href="contact.html" class="btn btn-solid">Book a free consultation</a>
                 <a href="#services" class="btn btn-outline">See our services</a>
             </div>
             <dl class="hero-stats">
@@ -112,6 +112,91 @@
         </div>
     </section>
 
+    <!-- Team -->
+    <section id="team" class="team">
+        <div class="section-head">
+            <p class="eyebrow">The people behind the org</p>
+            <h2>Meet the Cloudibell team.</h2>
+        </div>
+
+        <div class="team-marquee">
+            <div class="team-track">
+                <div class="team-card">
+                    <div class="team-photo" style="--avatar-a:#2F4899; --avatar-b:#4086E0;">RK</div>
+                    <div class="team-caption">
+                        <p class="team-name">Ravi Kumar</p>
+                        <p class="team-role">Founder &amp; CEO</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo" style="--avatar-a:#4086E0; --avatar-b:#2F4899;">AS</div>
+                    <div class="team-caption">
+                        <p class="team-name">Anitha Sharma</p>
+                        <p class="team-role">Head of Delivery</p>
+                    </div>
+                </div>
+                <div class="team-card team-card--lead">
+                    <div class="team-photo" style="--avatar-a:#16213E; --avatar-b:#4086E0;">VP</div>
+                    <div class="team-caption">
+                        <p class="team-name">Vikram Pillai</p>
+                        <p class="team-role">Lead Salesforce Architect</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo" style="--avatar-a:#2F4899; --avatar-b:#F2A93B;">NM</div>
+                    <div class="team-caption">
+                        <p class="team-name">Nisha Mehta</p>
+                        <p class="team-role">Head of Customer Success</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo" style="--avatar-a:#4086E0; --avatar-b:#16213E;">SR</div>
+                    <div class="team-caption">
+                        <p class="team-name">Sanjay Reddy</p>
+                        <p class="team-role">Salesforce Developer</p>
+                    </div>
+                </div>
+
+                <!-- duplicate set for a seamless loop, hidden from assistive tech -->
+                <div class="team-card" aria-hidden="true">
+                    <div class="team-photo" style="--avatar-a:#2F4899; --avatar-b:#4086E0;">RK</div>
+                    <div class="team-caption">
+                        <p class="team-name">Ravi Kumar</p>
+                        <p class="team-role">Founder &amp; CEO</p>
+                    </div>
+                </div>
+                <div class="team-card" aria-hidden="true">
+                    <div class="team-photo" style="--avatar-a:#4086E0; --avatar-b:#2F4899;">AS</div>
+                    <div class="team-caption">
+                        <p class="team-name">Anitha Sharma</p>
+                        <p class="team-role">Head of Delivery</p>
+                    </div>
+                </div>
+                <div class="team-card team-card--lead" aria-hidden="true">
+                    <div class="team-photo" style="--avatar-a:#16213E; --avatar-b:#4086E0;">VP</div>
+                    <div class="team-caption">
+                        <p class="team-name">Vikram Pillai</p>
+                        <p class="team-role">Lead Salesforce Architect</p>
+                    </div>
+                </div>
+                <div class="team-card" aria-hidden="true">
+                    <div class="team-photo" style="--avatar-a:#2F4899; --avatar-b:#F2A93B;">NM</div>
+                    <div class="team-caption">
+                        <p class="team-name">Nisha Mehta</p>
+                        <p class="team-role">Head of Customer Success</p>
+                    </div>
+                </div>
+                <div class="team-card" aria-hidden="true">
+                    <div class="team-photo" style="--avatar-a:#4086E0; --avatar-b:#16213E;">SR</div>
+                    <div class="team-caption">
+                        <p class="team-name">Sanjay Reddy</p>
+                        <p class="team-role">Salesforce Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services -->
     <section id="services" class="services">
         <div class="section-head">
@@ -175,50 +260,74 @@
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <div class="contact-info">
-            <p class="eyebrow">Get in touch</p>
-            <h2>Tell us where your org is stuck.</h2>
-            <p class="contact-sub">Share a few details and a consultant will get back to you within one business day.</p>
-
-            <ul class="contact-details">
-                <li><span>Email</span>hello@cloudibelltech.com</li>
-                <li><span>Phone</span>+91 40 0000 0000</li>
-                <li><span>Office</span>Hyderabad, Telangana, India</li>
-            </ul>
-        </div>
-
-        <form class="contact-form">
-            <label>
-                Name
-                <input type="text" name="name" placeholder="Your full name" required>
-            </label>
-            <label>
-                Work email
-                <input type="email" name="email" placeholder="you@company.com" required>
-            </label>
-            <label>
-                What do you need help with?
-                <textarea name="message" rows="4" placeholder="Tell us a bit about your Salesforce org and where you're stuck."></textarea>
-            </label>
-            <button type="submit" class="btn btn-solid">Send message</button>
-        </form>
+    <!-- Contact CTA -->
+    <section id="contact" class="contact-band">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Tell us where your org is stuck.</h2>
+        <p class="contact-band-sub">Share a few details on our contact page and a consultant will get back to you within one business day.</p>
+        <a href="contact.html" class="btn btn-solid">Go to contact form</a>
     </section>
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="footer-brand">
-            <img src="assessts/cloudbelllogo.jpg" alt="Cloudibell Tech Logo" class="logo logo--footer">
-            <p>Cloudibell Tech Pvt Ltd</p>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="assessts/cloudbelllogo.jpg" alt="Cloudibell Tech Logo" class="logo logo--footer">
+                <p class="footer-tagline">Cloudibell Tech is a certified Salesforce partner helping growing
+                    businesses implement, connect and get real adoption out of their Salesforce org.</p>
+                <p class="footer-stay">Stay in touch with us</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.5c0-.9.25-1.5 1.55-1.5H16.5V4.3c-.28-.04-1.2-.12-2.28-.12-2.26 0-3.8 1.38-3.8 3.9V10.5H8v3h2.42V21h3.08z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="17.1" cy="6.9" r="1.1"/></svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><rect x="6.3" y="9.8" width="2.3" height="8" fill="#0F1420"/><circle cx="7.45" cy="6.9" r="1.35" fill="#0F1420"/><path d="M11.2 9.8h2.2v1.2c.5-.8 1.4-1.4 2.7-1.4 2 0 3.1 1.3 3.1 3.7v4.5h-2.3v-4c0-1.1-.4-1.9-1.5-1.9-1 0-1.6.7-1.6 1.9v4h-2.3z" fill="#0F1420"/></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="11" rx="3"/><path d="M10.5 9.8v4.4l4-2.2z" fill="#0F1420"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="contact.html">Careers</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Implementation</a></li>
+                    <li><a href="#services">Customization &amp; Development</a></li>
+                    <li><a href="#services">Integration</a></li>
+                    <li><a href="#services">Data Migration</a></li>
+                    <li><a href="#services">Managed Support</a></li>
+                    <li><a href="#services">Training &amp; Enablement</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="contact.html">Get a Consultation</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
         </div>
-        <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <p class="footer-copy">&copy; 2026 Cloudibell Tech Pvt Ltd. All rights reserved.</p>
+
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Cloudibell Tech Pvt Ltd. All rights reserved.</p>
+        </div>
     </footer>
 
 </body>
