@@ -362,17 +362,23 @@ section {
 }
 
 .team-photo {
+    width: 100%;
     height: 260px;
+    overflow: hidden;
     border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(160deg, var(--avatar-a, var(--navy)) 0%, var(--avatar-b, var(--sky)) 100%);
-    color: #FFFFFF;
-    font-family: var(--font-display);
-    font-size: 32px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    background: #f5f5f5;
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .3s ease;
+}
+
+.team-card:hover .team-photo img {
+    transform: scale(1.05);
 }
 
 .team-card--lead .team-photo {
