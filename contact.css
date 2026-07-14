@@ -1,0 +1,24 @@
+/* =========================================================
+   Cloudibell Tech — Contact form status message
+   Append to homepage.css, or link as a separate stylesheet
+   after homepage.css on contact.html.
+   ========================================================= */
+
+.form-status {
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 1.5em;
+}
+
+.form-status--success {
+  color: #0F6E56;
+}
+
+.form-status--error {
+  color: #993C1D;
+}
+
+.contact-form button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

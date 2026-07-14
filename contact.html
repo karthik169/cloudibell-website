@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="contact.css">
 </head>
 <body>
 
@@ -42,21 +43,34 @@
             </ul>
         </div>
 
-        <form class="contact-form">
-            <label>
-                Name
-                <input type="text" name="name" placeholder="Your full name" required>
-            </label>
-            <label>
-                Work email
-                <input type="email" name="email" placeholder="you@company.com" required>
-            </label>
-            <label>
-                What do you need help with?
-                <textarea name="message" rows="4" placeholder="Tell us a bit about your Salesforce org and where you're stuck."></textarea>
-            </label>
-            <button type="submit" class="btn btn-solid">Send message</button>
-        </form>
+        <form class="contact-form" id="contactForm">
+
+        <label>
+            Name
+            <input id="name" type="text" name="name"
+                placeholder="Your full name" required>
+        </label>
+
+        <label>
+            Work email
+            <input id="email" type="email" name="email"
+                placeholder="you@company.com" required>
+        </label>
+
+        <label>
+            What do you need help with?
+            <textarea id="message" name="message" rows="4"
+                placeholder="Tell us a bit about your Salesforce org and where you're stuck."
+                required></textarea>
+        </label>
+
+        <button type="submit" class="btn btn-solid">
+            Send message
+        </button>
+
+        <p class="form-status" role="status" aria-live="polite"></p>
+
+    </form>
     </section>
 
     <!-- Footer -->
@@ -121,5 +135,7 @@
         </div>
     </footer>
 
+    <script type="module" src="firebase.js"></script>
+    <script src="contact.js"></script>
 </body>
 </html>

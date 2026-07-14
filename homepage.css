@@ -115,7 +115,7 @@ section {
 }
 
 .logo {
-    height: 100px; /* Adjust based on your preference */
+    height: 60px; /* Adjust based on your preference */
     width: auto;
 }
 
@@ -331,42 +331,56 @@ section {
 }
 
 /* =========================================================
-   Team (auto-advancing slider)
+   TEAM — premium step carousel
    ========================================================= */
+.team {
+    background-color: #FFFFFF;
+}
+
 .team-marquee {
+    position: relative;
     overflow: hidden;
     width: 100%;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
-    mask-image: linear-gradient(90deg, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+    margin-top: 40px;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
 }
 
 .team-track {
     display: flex;
-    align-items: flex-end;
-    gap: 24px;
+    align-items: flex-start;
+    gap: 28px;
     width: max-content;
-    /* 5 cards per set, one discrete step every 2s = 10s per full set */
-    animation: team-scroll 10s steps(5) infinite;
-}
-
-.team-marquee:hover .team-track {
-    animation-play-state: paused;
+    will-change: transform;
 }
 
 .team-card {
-    flex: 0 0 220px;
+    width: 220px;
+    min-height: 430px;
+    height: auto;
+    flex-shrink: 0;
+    opacity: 0.35;
+    transform: scale(0.88);
+    transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-.team-card--lead {
-    flex-basis: 260px;
+.team-card.active {
+    opacity: 1;
+    transform: scale(1.08);
 }
 
 .team-photo {
-    width: 100%;
-    height: 260px;
+    width: 220px;
+    height: 270px;
     overflow: hidden;
-    border-radius: 14px;
-    background: #f5f5f5;
+    border-radius: 16px;
+    background-color: var(--cloud);
+    box-shadow: 0 4px 14px rgba(22, 33, 62, 0.06);
+    transition: box-shadow 0.35s ease;
+}
+
+.team-card.active .team-photo {
+    box-shadow: 0 18px 36px rgba(47, 72, 153, 0.22);
 }
 
 .team-photo img {
@@ -374,50 +388,100 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform .3s ease;
-}
-
-.team-card:hover .team-photo img {
-    transform: scale(1.05);
-}
-
-.team-card--lead .team-photo {
-    height: 300px;
 }
 
 .team-caption {
-    padding: 14px 4px 0;
+    margin-top: 16px;
     text-align: center;
+    min-height: 48px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
 }
 
-.team-name {
-    font-size: 15px;
-    font-weight: 700;
+.team-card.active .team-caption {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
+}
+
+.team-caption h3 {
+    font-family: var(--font-display);
+    font-size: 17px;
     color: var(--navy);
+    margin-bottom: 4px;
 }
 
-.team-role {
-    font-size: 13px;
+.team-caption p {
+    font-size: 13.5px;
     color: var(--slate);
-    margin-top: 2px;
 }
 
-@keyframes team-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(calc(-50% - 12px)); }
+.team-marquee:hover {
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .team-card,
+    .team-photo {
+        width: 190px;
+    }
+    .team-photo {
+        height: 235px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-card,
+    .team-photo {
+        width: 160px;
+    }
+    .team-photo {
+        height: 200px;
+    }
+    .team-caption h3 {
+        font-size: 15px;
+    }
+    .team-caption p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-card,
+    .team-photo {
+        width: 140px;
+    }
+    .team-photo {
+        height: 180px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .team-track {
-        animation: none;
         flex-wrap: wrap;
         width: 100%;
         justify-content: center;
+        transform: none !important;
     }
-
+    .team-card {
+        opacity: 1;
+        transform: none !important;
+    }
+    .team-caption {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
     .team-marquee {
         -webkit-mask-image: none;
         mask-image: none;
+    }
+    .team-card[aria-hidden="true"] {
+        display: none;
     }
 }
 
@@ -613,7 +677,7 @@ section {
 }
 
 .logo--footer {
-    height: 50px;
+    height: 40px;
     width: auto;
 }
 
