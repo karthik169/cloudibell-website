@@ -7,7 +7,7 @@
   'use strict';
 
   // ---- Replace with your own Web3Forms access key ----
-  const WEB3FORMS_ACCESS_KEY = '2f1dc609-4c6f-4ef8-ad20-1455e50efd1b';
+  const WEB3FORMS_ACCESS_KEY = 'e7aa4ad3-9954-4c16-9d67-8fcfc5951621';
   // ------------------------------------------------------
 
   const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
