@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Cloudibell Tech Pvt Ltd</title>
+    <meta name="description" content="Build your career at Cloudibell Tech. Explore open roles in Salesforce, engineering, QA and more, and apply in minutes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css\homepage.css">
+    <link rel="stylesheet" href="css\navbar.css">
+    <link rel="stylesheet" href="css\careers.css">
+</head>
+<body>
+
+    <!-- Navigation Bar (reused exactly from homepage, with Careers item added) -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assessts/cloudbelllogo.jpg" alt="Cloudibell Tech Logo" class="nav-logo-img">
+            </a>
+
+            <nav class="nav-links" aria-label="Primary">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About Us</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#team" class="nav-link">Team</a>
+                <a href="careers.html" class="nav-link is-active" aria-current="page">Careers</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <a href="contact.html" class="nav-cta">Book Free Consultation</a>
+
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+        </div>
+
+        <div class="nav-overlay" id="navOverlay"></div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-menu-links" aria-label="Mobile">
+                <a href="index.html#home" class="mobile-link">Home</a>
+                <a href="index.html#about" class="mobile-link">About Us</a>
+                <a href="index.html#services" class="mobile-link">Services</a>
+                <a href="index.html#team" class="mobile-link">Team</a>
+                <a href="careers.html" class="mobile-link is-active" aria-current="page">Careers</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+            </nav>
+            <a href="contact.html" class="mobile-cta">Book Free Consultation</a>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="cr-hero" id="careersHome">
+        <div class="cr-hero-orbs" aria-hidden="true">
+            <span class="cr-orb cr-orb--sky"></span>
+            <span class="cr-orb cr-orb--gold"></span>
+            <span class="cr-orb cr-orb--navy"></span>
+        </div>
+
+        <div class="cr-hero-inner">
+            <div class="cr-hero-copy">
+                <p class="eyebrow">Careers at Cloudibell</p>
+                <h1 class="cr-hero-title">Build Your Career With <span>Cloudibell Tech</span></h1>
+                <p class="cr-hero-sub">Join a passionate team building innovative Salesforce, Cloud, AI and
+                    enterprise software solutions for businesses around the world.</p>
+                <div class="cr-hero-actions">
+                    <a href="#openings" class="btn btn-solid">View Open Positions</a>
+                    <button type="button" class="btn btn-outline" id="heroApplyBtn">Apply Now</button>
+                </div>
+                <dl class="cr-hero-stats">
+                    <div><dt id="statOpenRoles">7</dt><dd>open roles</dd></div>
+                    <div><dt>4</dt><dd>departments hiring</dd></div>
+                    <div><dt>2</dt><dd>remote-friendly roles</dd></div>
+                </dl>
+            </div>
+
+            <div class="cr-hero-visual" aria-hidden="true">
+                <svg viewBox="0 0 460 460" class="cr-orbit-svg">
+                    <circle class="orbit-ring" cx="230" cy="230" r="170"/>
+                    <circle class="orbit-ring orbit-ring--inner" cx="230" cy="230" r="105"/>
+                    <g class="orbit-spin">
+                        <g class="orbit-node" transform="translate(230,60)"><circle r="34"/><text y="5">Sales<tspan x="0" dy="12">force</tspan></text></g>
+                        <g class="orbit-node" transform="translate(400,230)"><circle r="34"/><text y="5">Engin<tspan x="0" dy="12">eering</tspan></text></g>
+                        <g class="orbit-node" transform="translate(230,400)"><circle r="34"/><text y="5">QA &amp;<tspan x="0" dy="12">Support</tspan></text></g>
+                        <g class="orbit-node" transform="translate(60,230)"><circle r="34"/><text y="5">People &amp;<tspan x="0" dy="12">Ops</tspan></text></g>
+                    </g>
+                    <g class="orbit-core">
+                        <circle r="58" cx="230" cy="230"/>
+                        <text x="230" y="225">Your</text>
+                        <text x="230" y="245">Career</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         WHY JOIN
+         ============================================================ -->
+    <section class="cr-why" id="why">
+        <div class="section-head">
+            <p class="eyebrow">Why Cloudibell</p>
+            <h2>A place to do your best Salesforce work.</h2>
+        </div>
+
+        <div class="cr-grid cr-grid--6" data-reveal-group>
+            <article class="cr-card" data-reveal>
+                <span class="cr-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 19V9l8-5 8 5v10h-6v-6H10v6z"/></svg>
+                </span>
+                <h3>Career Growth</h3>
+                <p>Clear ladders from associate to architect, with mentorship built into every project you ship.</p>
+            </article>
+            <article class="cr-card" data-reveal>
+                <span class="cr-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3zm-9 7.2L12 15l9-4.8V16l-9 4.8L3 16v-5.8z"/></svg>
+                </span>
+                <h3>Continuous Learning</h3>
+                <p>Sponsored Trailhead paths, certification exams and internal knowledge shares every month.</p>
+            </article>
+            <article class="cr-card" data-reveal>
+                <span class="cr-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 1 9 9v-2a7 7 0 1 0-7-7H3zm9-5v5l4 2-.8 1.6L11 13V7z"/></svg>
+                </span>
+                <h3>Flexible Work</h3>
+                <p>Hybrid and remote options for most roles, with core hours built around real focus time.</p>
+            </article>
+            <article class="cr-card" data-reveal>
+                <span class="cr-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg>
+                </span>
+                <h3>Latest Technologies</h3>
+                <p>Work across Salesforce, Apex, LWC, and modern integration tooling from day one, not year three.</p>
+            </article>
+            <article class="cr-card" data-reveal>
+                <span class="cr-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.5 5.5L20 9l-4.5 3.8L17 19l-5-3.2L7 19l1.5-6.2L4 9l5.5-1.5z"/></svg>
+                </span>
+                <h3>Recognition &amp; Rewards</h3>
+                <p>Quarterly spotlight awards and performance bonuses tied to client outcomes, not just hours logged.</p>
+            </article>
+            <article class="cr-card" data-reveal>
+                <span class="cr-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm8 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM2 21v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2H2zm13-7h2a5 5 0 0 1 5 5v2h-6v-2a6.97 6.97 0 0 0-1.6-4.47c.2-.02.4-.03.6-.03z"/></svg>
+                </span>
+                <h3>Collaborative Culture</h3>
+                <p>Small pods, direct access to architects and clients, and a Slack where questions get answered fast.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         LIFE AT CLOUDIBELL
+         ============================================================ -->
+    <section class="cr-life" id="life">
+        <div class="section-head">
+            <p class="eyebrow">Life at Cloudibell</p>
+            <h2>What a week here actually looks like.</h2>
+        </div>
+
+        <div class="cr-grid cr-grid--3" data-reveal-group>
+            <article class="cr-life-card" data-reveal>
+                <h3>Innovation</h3>
+                <p>Fridays include a standing "build hour" where anyone can prototype an idea against a real client problem.</p>
+            </article>
+            <article class="cr-life-card" data-reveal>
+                <h3>Team Collaboration</h3>
+                <p>Every implementation runs as a pod of admins, developers and a delivery lead, so no one solves things alone.</p>
+            </article>
+            <article class="cr-life-card" data-reveal>
+                <h3>Knowledge Sharing</h3>
+                <p>Monthly "Org Autopsy" sessions walk through a real build, warts and all, so lessons don't stay siloed.</p>
+            </article>
+            <article class="cr-life-card" data-reveal>
+                <h3>Leadership</h3>
+                <p>Project leads rotate by engagement, giving junior consultants real ownership earlier than most firms allow.</p>
+            </article>
+            <article class="cr-life-card" data-reveal>
+                <h3>Hackathons</h3>
+                <p>Twice a year we pause client work for 48 hours to build something nobody asked for yet.</p>
+            </article>
+            <article class="cr-life-card" data-reveal>
+                <h3>Client Success</h3>
+                <p>Consultants sit in on adoption reviews, so you see the org you built actually get used.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CURRENT OPENINGS + FILTER
+         ============================================================ -->
+    <section class="cr-openings" id="openings">
+        <div class="section-head">
+            <p class="eyebrow">Current Openings</p>
+            <h2>Find the role that fits.</h2>
+        </div>
+
+        <form class="cr-filter" id="filterForm" role="search" aria-label="Filter job openings">
+            <div class="cr-filter-row">
+                <label class="cr-filter-field cr-filter-field--wide">
+                    <span>Keyword</span>
+                    <input type="text" id="filterKeyword" placeholder="Job title or skill, e.g. Apex">
+                </label>
+                <label class="cr-filter-field">
+                    <span>Department</span>
+                    <select id="filterDepartment">
+                        <option value="">All departments</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Salesforce">Salesforce</option>
+                        <option value="Quality Assurance">Quality Assurance</option>
+                        <option value="Business Analysis">Business Analysis</option>
+                        <option value="People &amp; Culture">People &amp; Culture</option>
+                    </select>
+                </label>
+                <label class="cr-filter-field">
+                    <span>Experience</span>
+                    <select id="filterExperience">
+                        <option value="">Any experience</option>
+                        <option value="Fresher">Fresher</option>
+                        <option value="0-2">0&ndash;2 years</option>
+                        <option value="1-3">1&ndash;3 years</option>
+                    </select>
+                </label>
+                <label class="cr-filter-field">
+                    <span>Location</span>
+                    <select id="filterLocation">
+                        <option value="">All locations</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Remote">Remote</option>
+                    </select>
+                </label>
+                <label class="cr-filter-field">
+                    <span>Employment Type</span>
+                    <select id="filterType">
+                        <option value="">Any type</option>
+                        <option value="Full Time">Full Time</option>
+                    </select>
+                </label>
+            </div>
+            <div class="cr-filter-actions">
+                <button type="submit" class="btn btn-solid">Search</button>
+                <button type="button" class="btn btn-outline" id="resetFilters">Reset Filters</button>
+            </div>
+        </form>
+
+        <p class="cr-results-count" id="resultsCount" role="status" aria-live="polite"></p>
+
+        <div class="cr-jobs-grid" id="jobsGrid"></div>
+
+        <p class="cr-no-results" id="noResults" hidden>No roles match those filters right now &mdash; try clearing one and searching again.</p>
+    </section>
+
+    <!-- ============================================================
+         HIRING PROCESS
+         ============================================================ -->
+    <section class="cr-process" id="process">
+        <div class="section-head">
+            <p class="eyebrow">How Hiring Works</p>
+            <h2>Six steps, start to offer.</h2>
+        </div>
+
+        <ol class="cr-timeline" data-reveal-group>
+            <li class="cr-timeline-step" data-reveal><span class="cr-step-num">01</span><h3>Application</h3><p>You apply online in under five minutes.</p></li>
+            <li class="cr-timeline-step" data-reveal><span class="cr-step-num">02</span><h3>Resume Screening</h3><p>Our recruiters match your profile to the role.</p></li>
+            <li class="cr-timeline-step" data-reveal><span class="cr-step-num">03</span><h3>Technical Assessment</h3><p>A short, role-relevant task or test.</p></li>
+            <li class="cr-timeline-step" data-reveal><span class="cr-step-num">04</span><h3>Technical Interview</h3><p>A conversation with the team you'd join.</p></li>
+            <li class="cr-timeline-step" data-reveal><span class="cr-step-num">05</span><h3>HR Interview</h3><p>We talk fit, expectations and logistics.</p></li>
+            <li class="cr-timeline-step" data-reveal><span class="cr-step-num">06</span><h3>Offer Letter</h3><p>You get a formal offer and onboarding plan.</p></li>
+        </ol>
+    </section>
+
+    <!-- ============================================================
+         BENEFITS
+         ============================================================ -->
+    <section class="cr-benefits" id="benefits">
+        <div class="section-head">
+            <p class="eyebrow">Employee Benefits</p>
+            <h2>What you get, day one.</h2>
+        </div>
+
+        <div class="cr-grid cr-grid--4" data-reveal-group>
+            <article class="cr-benefit-card" data-reveal><h3>Health Insurance</h3><p>Coverage for you and your immediate family from your first day.</p></article>
+            <article class="cr-benefit-card" data-reveal><h3>Paid Leave</h3><p>Generous annual leave plus dedicated sick and festival leave.</p></article>
+            <article class="cr-benefit-card" data-reveal><h3>Certification Support</h3><p>Salesforce certification exam fees covered on approval.</p></article>
+            <article class="cr-benefit-card" data-reveal><h3>Learning Budget</h3><p>An annual budget for courses, books and conferences.</p></article>
+            <article class="cr-benefit-card" data-reveal><h3>Flexible Work</h3><p>Hybrid schedules built around real, focused work time.</p></article>
+            <article class="cr-benefit-card" data-reveal><h3>Performance Bonus</h3><p>Bonuses tied to delivery outcomes, reviewed twice a year.</p></article>
+            <article class="cr-benefit-card" data-reveal><h3>Annual Team Events</h3><p>Offsites and celebrations that get the whole team together.</p></article>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section class="cr-faq" id="faq">
+        <div class="section-head">
+            <p class="eyebrow">Questions</p>
+            <h2>Frequently asked.</h2>
+        </div>
+
+        <div class="cr-accordion" id="faqAccordion">
+            <div class="cr-accordion-item">
+                <h3>
+                    <button type="button" class="cr-accordion-trigger" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+                        Can freshers apply?
+                    </button>
+                </h3>
+                <div class="cr-accordion-panel" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden>
+                    <p>Yes. Several of our open roles are fresher-friendly, and we regularly hire straight out of college for engineering and Salesforce administration positions.</p>
+                </div>
+            </div>
+            <div class="cr-accordion-item">
+                <h3>
+                    <button type="button" class="cr-accordion-trigger" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+                        How long does hiring take?
+                    </button>
+                </h3>
+                <div class="cr-accordion-panel" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
+                    <p>Most roles move from application to offer in two to three weeks, depending on how quickly interviews can be scheduled on both sides.</p>
+                </div>
+            </div>
+            <div class="cr-accordion-item">
+                <h3>
+                    <button type="button" class="cr-accordion-trigger" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+                        Can I apply for multiple positions?
+                    </button>
+                </h3>
+                <div class="cr-accordion-panel" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
+                    <p>Yes, you're welcome to apply to any roles that match your background. Just submit a separate application for each one.</p>
+                </div>
+            </div>
+            <div class="cr-accordion-item">
+                <h3>
+                    <button type="button" class="cr-accordion-trigger" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+                        Do you provide remote work?
+                    </button>
+                </h3>
+                <div class="cr-accordion-panel" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
+                    <p>Some roles are fully remote and others are hybrid out of our Hyderabad office. Each job listing states its location.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL CTA
+         ============================================================ -->
+    <section class="cr-final-cta">
+        <p class="eyebrow">Don't see your role?</p>
+        <h2>Send us your resume anyway.</h2>
+        <p class="cr-final-cta-sub">We're always looking for passionate people. Tell us what you're great at and we'll reach out when a fit opens up.</p>
+        <button type="button" class="btn btn-solid" id="generalApplyBtn">Submit General Application</button>
+    </section>
+
+    <!-- Footer (reused exactly from homepage) -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="assessts/company_logo_ppt_final-removebg-preview.png" alt="Cloudibell Tech Logo" class="logo logo--footer">
+                <p class="footer-tagline">Cloudibell Tech is a certified Salesforce partner helping growing
+                    businesses implement, connect and get real adoption out of their Salesforce org.</p>
+                <p class="footer-stay">Stay in touch with us</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.5c0-.9.25-1.5 1.55-1.5H16.5V4.3c-.28-.04-1.2-.12-2.28-.12-2.26 0-3.8 1.38-3.8 3.9V10.5H8v3h2.42V21h3.08z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="17.1" cy="6.9" r="1.1"/></svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><rect x="6.3" y="9.8" width="2.3" height="8" fill="#0F1420"/><circle cx="7.45" cy="6.9" r="1.35" fill="#0F1420"/><path d="M11.2 9.8h2.2v1.2c.5-.8 1.4-1.4 2.7-1.4 2 0 3.1 1.3 3.1 3.7v4.5h-2.3v-4c0-1.1-.4-1.9-1.5-1.9-1 0-1.6.7-1.6 1.9v4h-2.3z" fill="#0F1420"/></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="11" rx="3"/><path d="M10.5 9.8v4.4l4-2.2z" fill="#0F1420"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#team">Our Team</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="index.html#services">Implementation</a></li>
+                    <li><a href="index.html#services">Customization &amp; Development</a></li>
+                    <li><a href="index.html#services">Integration</a></li>
+                    <li><a href="index.html#services">Data Migration</a></li>
+                    <li><a href="index.html#services">Managed Support</a></li>
+                    <li><a href="index.html#services">Training &amp; Enablement</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="contact.html">Get a Consultation</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Cloudibell Tech Pvt Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         APPLICATION MODAL
+         ============================================================ -->
+    <div class="cr-modal-overlay" id="modalOverlay" hidden>
+        <div class="cr-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" id="applicationModal">
+
+            <!-- Form view -->
+            <div class="cr-modal-view" id="modalFormView">
+                <button type="button" class="cr-modal-close" id="modalCloseBtn" aria-label="Close application form">&times;</button>
+                <div class="cr-modal-head">
+                    <p class="eyebrow">Apply Now</p>
+                    <h2 id="modalTitle">Application for <span id="modalJobTitle">General Application</span></h2>
+                </div>
+
+                <form id="applicationForm" class="cr-form" novalidate>
+                    <input type="hidden" id="appliedJobTitle" value="General Application">
+
+                    <fieldset class="cr-form-fieldset">
+                        <legend>Your details</legend>
+                        <div class="cr-form-grid">
+                            <label class="cr-form-field">
+                                <span>Full Name *</span>
+                                <input type="text" id="fullName" name="fullName" required autocomplete="name">
+                                <small class="cr-form-error" data-error-for="fullName"></small>
+                            </label>
+                            <label class="cr-form-field">
+                                <span>Email *</span>
+                                <input type="email" id="email" name="email" required autocomplete="email">
+                                <small class="cr-form-error" data-error-for="email"></small>
+                            </label>
+                            <label class="cr-form-field">
+                                <span>Phone Number *</span>
+                                <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="10-digit mobile number">
+                                <small class="cr-form-error" data-error-for="phone"></small>
+                            </label>
+                            <label class="cr-form-field">
+                                <span>Current Location *</span>
+                                <input type="text" id="currentLocation" name="currentLocation" required>
+                                <small class="cr-form-error" data-error-for="currentLocation"></small>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="cr-form-fieldset">
+                        <legend>Education</legend>
+                        <div class="cr-form-grid">
+                            <label class="cr-form-field">
+                                <span>Highest Qualification *</span>
+                                <input type="text" id="qualification" name="qualification" required placeholder="e.g. B.Tech Computer Science">
+                                <small class="cr-form-error" data-error-for="qualification"></small>
+                            </label>
+                            <label class="cr-form-field">
+                                <span>College</span>
+                                <input type="text" id="college" name="college">
+                            </label>
+                            <label class="cr-form-field">
+                                <span>Passing Year</span>
+                                <input type="number" id="passingYear" name="passingYear" min="1990" max="2030" placeholder="e.g. 2025">
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="cr-form-fieldset">
+                        <legend>Experience</legend>
+                        <div class="cr-form-grid">
+                            <label class="cr-form-field">
+                                <span>Experience Type *</span>
+                                <select id="experienceType" name="experienceType" required>
+                                    <option value="Fresher">Fresher</option>
+                                    <option value="Experienced">Experienced</option>
+                                </select>
+                                <small class="cr-form-error" data-error-for="experienceType"></small>
+                            </label>
+                            <label class="cr-form-field cr-form-field--exp">
+                                <span>Current Company</span>
+                                <input type="text" id="currentCompany" name="currentCompany" disabled>
+                                <small class="cr-form-hint">Not applicable for freshers.</small>
+                            </label>
+                            <label class="cr-form-field cr-form-field--exp">
+                                <span>Previous Company</span>
+                                <input type="text" id="previousCompany" name="previousCompany" disabled>
+                                <small class="cr-form-hint">Not applicable for freshers.</small>
+                            </label>
+                            <label class="cr-form-field cr-form-field--exp">
+                                <span>Years of Experience</span>
+                                <input type="number" id="yearsExperience" name="yearsExperience" min="0" step="0.5" disabled>
+                                <small class="cr-form-hint">Not applicable for freshers.</small>
+                            </label>
+                            <label class="cr-form-field cr-form-field--exp">
+                                <span>Current CTC</span>
+                                <input type="text" id="currentCtc" name="currentCtc" disabled placeholder="e.g. 6 LPA">
+                                <small class="cr-form-hint">Not applicable for freshers.</small>
+                            </label>
+                            <label class="cr-form-field cr-form-field--exp">
+                                <span>Expected CTC</span>
+                                <input type="text" id="expectedCtc" name="expectedCtc" disabled placeholder="e.g. 8 LPA">
+                                <small class="cr-form-hint">Not applicable for freshers.</small>
+                            </label>
+                            <label class="cr-form-field cr-form-field--exp">
+                                <span>Notice Period</span>
+                                <input type="text" id="noticePeriod" name="noticePeriod" disabled placeholder="e.g. 30 days">
+                                <small class="cr-form-hint">Not applicable for freshers.</small>
+                            </label>
+                            <label class="cr-form-field cr-form-field--exp cr-form-field--wide">
+                                <span>Experience Description</span>
+                                <textarea id="experienceDescription" name="experienceDescription" rows="3" disabled placeholder="Briefly describe your recent work"></textarea>
+                                <small class="cr-form-hint">Not applicable for freshers.</small>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="cr-form-fieldset">
+                        <legend>Links &amp; resume</legend>
+                        <div class="cr-form-grid">
+                            <label class="cr-form-field">
+                                <span>Preferred Location</span>
+                                <input type="text" id="preferredLocation" name="preferredLocation">
+                            </label>
+                            <label class="cr-form-field">
+                                <span>LinkedIn</span>
+                                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/...">
+                            </label>
+                            <label class="cr-form-field">
+                                <span>GitHub</span>
+                                <input type="url" id="github" name="github" placeholder="https://github.com/...">
+                            </label>
+                            <label class="cr-form-field">
+                                <span>Portfolio</span>
+                                <input type="url" id="portfolio" name="portfolio" placeholder="https://...">
+                            </label>
+                            <label class="cr-form-field">
+                                <span>Resume Upload * (PDF or DOCX, max 5 MB)</span>
+                                <input type="file" id="resume" name="resume" required accept=".pdf,.doc,.docx">
+                                <small class="cr-form-error" data-error-for="resume"></small>
+                            </label>
+                            <label class="cr-form-field cr-form-field--wide">
+                                <span>Cover Letter</span>
+                                <textarea id="coverLetter" name="coverLetter" rows="3" placeholder="Optional — tell us why you're a fit"></textarea>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="cr-form-actions">
+                        <button type="submit" class="btn btn-solid" id="submitAppBtn">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Loading view -->
+            <div class="cr-modal-view cr-modal-view--loading" id="modalLoadingView" hidden>
+                <span class="cr-spinner" aria-hidden="true"></span>
+                <p>Submitting your application&hellip;</p>
+            </div>
+
+            <!-- Success view -->
+            <div class="cr-modal-view cr-modal-view--success" id="modalSuccessView" hidden>
+                <span class="cr-success-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <h2>Application Submitted Successfully</h2>
+                <p class="cr-app-id">Application ID: <strong id="applicationId">CBT-2026-000000</strong></p>
+                <p>Thank you for applying. A confirmation email has been sent to your registered email address.
+                    Our recruitment team will contact you if your profile matches our requirements.</p>
+                <div class="cr-form-actions cr-form-actions--center">
+                    <button type="button" class="btn btn-outline" id="returnCareersBtn">Return to Careers</button>
+                    <button type="button" class="btn btn-solid" id="closeSuccessBtn">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Job card template -->
+    <template id="jobCardTemplate">
+        <article class="cr-job-card" data-reveal>
+            <div class="cr-job-card-head">
+                <h3 class="cr-job-title"></h3>
+                <span class="cr-job-type"></span>
+            </div>
+            <ul class="cr-job-meta">
+                <li><span class="cr-job-meta-label">Location</span><span class="cr-job-location"></span></li>
+                <li><span class="cr-job-meta-label">Experience</span><span class="cr-job-experience"></span></li>
+                <li><span class="cr-job-meta-label">Department</span><span class="cr-job-department"></span></li>
+                <li><span class="cr-job-meta-label">Salary</span><span class="cr-job-salary"></span></li>
+            </ul>
+            <p class="cr-job-desc"></p>
+            <div class="cr-job-skills"></div>
+            <div class="cr-job-footer">
+                <span class="cr-job-posted"></span>
+                <button type="button" class="btn btn-solid cr-job-apply">Apply Now</button>
+            </div>
+        </article>
+    </template>
+
+    <script src="js/navbar.js" defer></script>
+    <script src="js/careers.js" defer></script>
+</body>
+</html>
