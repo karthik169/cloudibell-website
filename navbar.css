@@ -1,0 +1,313 @@
+/* =========================================================
+   Cloudibell Tech — Navigation Bar (redesign)
+   Uses the existing design tokens defined in homepage.css
+   (--navy, --sky, --ink, --slate, --cloud, --gold, --line,
+   --font-display, --font-body). This file only styles the
+   nav; no other section is touched.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Navbar shell
+   --------------------------------------------------------- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: box-shadow 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar.is-scrolled {
+    box-shadow: 0 8px 24px rgba(22, 33, 62, 0.08);
+    border-bottom-color: var(--line);
+}
+
+.nav-container {
+    height: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 50px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+}
+
+/* ---------------------------------------------------------
+   Logo
+   --------------------------------------------------------- */
+.nav-logo {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.nav-logo-img {
+    height: 42px;
+    width: auto;
+    transition: height 0.3s ease;
+}
+
+/* ---------------------------------------------------------
+   Desktop centered links
+   --------------------------------------------------------- */
+.nav-links {
+    grid-column: 2;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    padding: 8px 2px;
+    transition: color 0.25s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--sky);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.nav-link:hover {
+    color: var(--navy);
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-link.active {
+    color: var(--navy);
+}
+
+.nav-link.active::after {
+    transform: scaleX(1);
+    background-color: var(--navy);
+}
+
+/* ---------------------------------------------------------
+   Desktop CTA
+   --------------------------------------------------------- */
+.nav-cta {
+    grid-column: 3;
+    justify-self: end;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    text-decoration: none;
+    background-color: var(--sky);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 11px 22px;
+    border-radius: 999px;
+    transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.nav-cta:hover {
+    background-color: var(--navy);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(47, 72, 153, 0.22);
+}
+
+/* ---------------------------------------------------------
+   Hamburger toggle (hidden on desktop)
+   --------------------------------------------------------- */
+.nav-toggle {
+    grid-column: 3;
+    justify-self: end;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.nav-toggle:hover {
+    background-color: var(--cloud);
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--navy);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* morph into an X when open */
+.nav-toggle.is-active .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-active .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.is-active .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------------------------------------------------------
+   Mobile overlay + slide-in panel (hidden on desktop)
+   --------------------------------------------------------- */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 20, 32, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1001;
+}
+
+.nav-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(340px, 84vw);
+    background-color: #FFFFFF;
+    box-shadow: -12px 0 40px rgba(22, 33, 62, 0.14);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 104px 32px 32px;
+}
+
+.mobile-menu.is-open {
+    transform: translateX(0);
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mobile-link {
+    text-decoration: none;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 19px;
+    padding: 14px 6px;
+    border-radius: 8px;
+    border-left: 3px solid transparent;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.mobile-link:hover {
+    background-color: var(--cloud);
+    color: var(--navy);
+}
+
+.mobile-link.active {
+    color: var(--navy);
+    border-left-color: var(--sky);
+    background-color: var(--cloud);
+}
+
+.mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: var(--sky);
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.mobile-cta:hover {
+    background-color: var(--navy);
+    transform: translateY(-1px);
+}
+
+/* body scroll lock while the mobile menu is open */
+body.nav-open {
+    overflow: hidden;
+}
+
+/* ---------------------------------------------------------
+   Breakpoints
+   Desktop:  >= 992px  (nav-links + CTA visible, no hamburger)
+   Tablet:   768px - 991px  (collapses to hamburger — the
+             centered link row + CTA button don't fit this
+             width without crowding, so it shares the mobile
+             menu treatment)
+   Mobile:   <= 767px (hamburger, larger logo, 70px bar)
+   --------------------------------------------------------- */
+@media (max-width: 991px) {
+    .nav-container {
+        padding: 0 24px;
+    }
+
+    .nav-links,
+    .nav-cta {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar {
+        height: 70px;
+    }
+
+    .nav-container {
+        padding: 0 18px;
+    }
+
+    .nav-logo-img {
+        height: 50px;
+    }
+
+    .mobile-menu {
+        padding-top: 92px;
+    }
+}
