@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css\homepage.css">
-    <link rel="stylesheet" href="css\navbar.css">
-    <link rel="stylesheet" href="css\careers.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/careers.css">
 </head>
 <body>
 
@@ -194,7 +194,18 @@
     </section>
 
     <!-- ============================================================
-         CURRENT OPENINGS + FILTER
+         RECENTLY VIEWED (hidden until the person opens a job's details)
+         ============================================================ -->
+    <section class="cr-recent" id="recentlyViewed" hidden>
+        <div class="section-head section-head--left">
+            <p class="eyebrow">Recently Viewed</p>
+            <h2>Jump back in.</h2>
+        </div>
+        <div class="cr-recent-track" id="recentlyViewedTrack"></div>
+    </section>
+
+    <!-- ============================================================
+         CURRENT OPENINGS + ADVANCED SEARCH
          ============================================================ -->
     <section class="cr-openings" id="openings">
         <div class="section-head">
@@ -202,59 +213,109 @@
             <h2>Find the role that fits.</h2>
         </div>
 
-        <form class="cr-filter" id="filterForm" role="search" aria-label="Filter job openings">
-            <div class="cr-filter-row">
-                <label class="cr-filter-field cr-filter-field--wide">
-                    <span>Keyword</span>
-                    <input type="text" id="filterKeyword" placeholder="Job title or skill, e.g. Apex">
+        <form class="cr-filter" id="filterForm" role="search" aria-label="Search and filter job openings">
+            <div class="cr-search-row">
+                <label class="cr-search-field">
+                    <span>Job Title</span>
+                    <input type="text" id="searchTitle" placeholder="e.g. Developer">
                 </label>
+                <label class="cr-search-field">
+                    <span>Skill</span>
+                    <input type="text" id="searchSkill" placeholder="e.g. Java, Apex">
+                </label>
+                <label class="cr-search-field">
+                    <span>Keyword</span>
+                    <input type="text" id="searchKeyword" placeholder="Search anything about a role">
+                </label>
+            </div>
+
+            <div class="cr-filter-row">
                 <label class="cr-filter-field">
                     <span>Department</span>
                     <select id="filterDepartment">
-                        <option value="">All departments</option>
-                        <option value="Engineering">Engineering</option>
+                        <option value="">All</option>
+                        <option value="Development">Development</option>
                         <option value="Salesforce">Salesforce</option>
-                        <option value="Quality Assurance">Quality Assurance</option>
-                        <option value="Business Analysis">Business Analysis</option>
-                        <option value="People &amp; Culture">People &amp; Culture</option>
+                        <option value="Testing">Testing</option>
+                        <option value="HR">HR</option>
+                        <option value="Business Analyst">Business Analyst</option>
                     </select>
                 </label>
                 <label class="cr-filter-field">
                     <span>Experience</span>
                     <select id="filterExperience">
-                        <option value="">Any experience</option>
+                        <option value="">All</option>
                         <option value="Fresher">Fresher</option>
-                        <option value="0-2">0&ndash;2 years</option>
-                        <option value="1-3">1&ndash;3 years</option>
+                        <option value="0-2">0&ndash;2 Years</option>
+                        <option value="2-5">2&ndash;5 Years</option>
+                        <option value="5+">5+ Years</option>
                     </select>
                 </label>
                 <label class="cr-filter-field">
                     <span>Location</span>
                     <select id="filterLocation">
-                        <option value="">All locations</option>
+                        <option value="">All</option>
                         <option value="Hyderabad">Hyderabad</option>
                         <option value="Remote">Remote</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Chennai">Chennai</option>
                     </select>
                 </label>
                 <label class="cr-filter-field">
                     <span>Employment Type</span>
                     <select id="filterType">
-                        <option value="">Any type</option>
+                        <option value="">All</option>
                         <option value="Full Time">Full Time</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Contract">Contract</option>
+                    </select>
+                </label>
+                <label class="cr-filter-field">
+                    <span>Sort By</span>
+                    <select id="sortJobs">
+                        <option value="newest">Newest Jobs</option>
+                        <option value="salary-high">Highest Salary</option>
+                        <option value="salary-low">Lowest Salary</option>
+                        <option value="experience">Experience</option>
+                        <option value="location">Location</option>
+                        <option value="alpha">Alphabetically</option>
                     </select>
                 </label>
             </div>
+
             <div class="cr-filter-actions">
-                <button type="submit" class="btn btn-solid">Search</button>
-                <button type="button" class="btn btn-outline" id="resetFilters">Reset Filters</button>
+                <button type="submit" class="btn btn-solid cr-ripple">Search</button>
+                <button type="button" class="btn btn-outline cr-ripple" id="resetFilters">Reset Filters</button>
+                <button type="button" class="btn btn-outline cr-ripple cr-saved-toggle" id="savedJobsToggle" aria-pressed="false">
+                    <span class="cr-saved-toggle-icon" aria-hidden="true">&#9825;</span> Saved Jobs
+                    <span class="cr-saved-count" id="savedJobsCount">0</span>
+                </button>
             </div>
         </form>
 
         <p class="cr-results-count" id="resultsCount" role="status" aria-live="polite"></p>
 
-        <div class="cr-jobs-grid" id="jobsGrid"></div>
+        <!-- Skeleton loading placeholders -->
+        <div class="cr-jobs-grid" id="skeletonGrid" aria-hidden="true">
+            <div class="cr-job-skeleton"></div>
+            <div class="cr-job-skeleton"></div>
+            <div class="cr-job-skeleton"></div>
+            <div class="cr-job-skeleton"></div>
+            <div class="cr-job-skeleton"></div>
+            <div class="cr-job-skeleton"></div>
+        </div>
 
-        <p class="cr-no-results" id="noResults" hidden>No roles match those filters right now &mdash; try clearing one and searching again.</p>
+        <div class="cr-jobs-grid" id="jobsGrid" hidden></div>
+
+        <div class="cr-load-more-wrap">
+            <button type="button" class="btn btn-outline cr-ripple" id="loadMoreBtn" hidden>Load More Jobs</button>
+        </div>
+
+        <div class="cr-empty-state" id="noResults" hidden>
+            <p class="cr-empty-title">No jobs found.</p>
+            <p class="cr-empty-sub">Try changing your search or filters.</p>
+            <button type="button" class="btn btn-solid cr-ripple" id="emptyResetBtn">Reset Filters</button>
+        </div>
     </section>
 
     <!-- ============================================================
@@ -593,9 +654,114 @@
         </div>
     </div>
 
+    <!-- ============================================================
+         JOB DETAILS MODAL
+         ============================================================ -->
+    <div class="cr-modal-overlay" id="detailsOverlay" hidden>
+        <div class="cr-modal cr-modal--details" role="dialog" aria-modal="true" aria-labelledby="detailsTitle" id="detailsModal">
+            <button type="button" class="cr-modal-close" id="detailsCloseBtn" aria-label="Close job details">&times;</button>
+            <div class="cr-modal-view">
+                <div class="cr-modal-head">
+                    <div class="cr-details-badges" id="detailsBadges"></div>
+                    <p class="eyebrow">Job Description</p>
+                    <h2 id="detailsTitle"></h2>
+                </div>
+
+                <ul class="cr-details-meta">
+                    <li><span class="cr-job-meta-label">Department</span><span id="detailsDepartment"></span></li>
+                    <li><span class="cr-job-meta-label">Location</span><span id="detailsLocation"></span></li>
+                    <li><span class="cr-job-meta-label">Employment Type</span><span id="detailsType"></span></li>
+                    <li><span class="cr-job-meta-label">Salary</span><span id="detailsSalary"></span></li>
+                    <li><span class="cr-job-meta-label">Experience Required</span><span id="detailsExperience"></span></li>
+                    <li><span class="cr-job-meta-label">Working Hours</span><span id="detailsWorkingHours"></span></li>
+                    <li><span class="cr-job-meta-label">Job ID</span><span id="detailsJobId"></span></li>
+                    <li><span class="cr-job-meta-label">Posted Date</span><span id="detailsPosted"></span></li>
+                    <li><span class="cr-job-meta-label">Application Deadline</span><span id="detailsDeadline"></span></li>
+                    <li><span class="cr-job-meta-label">Applications</span><span id="detailsApplicants"></span></li>
+                </ul>
+
+                <div class="cr-details-block">
+                    <h3>Required Skills</h3>
+                    <div class="cr-job-skills" id="detailsSkills"></div>
+                </div>
+
+                <div class="cr-details-block">
+                    <h3>Job Responsibilities</h3>
+                    <ul class="cr-details-list" id="detailsResponsibilities"></ul>
+                </div>
+
+                <div class="cr-details-block">
+                    <h3>Required Qualifications</h3>
+                    <ul class="cr-details-list" id="detailsQualifications"></ul>
+                </div>
+
+                <div class="cr-details-block">
+                    <h3>Preferred Skills</h3>
+                    <div class="cr-job-skills" id="detailsPreferredSkills"></div>
+                </div>
+
+                <div class="cr-details-block">
+                    <h3>Benefits</h3>
+                    <div class="cr-job-skills cr-job-skills--benefits" id="detailsBenefits"></div>
+                </div>
+
+                <div class="cr-form-actions cr-form-actions--split">
+                    <div class="cr-details-secondary-actions">
+                        <button type="button" class="cr-job-save cr-job-save--details" id="detailsSaveBtn" aria-pressed="false" aria-label="Save job">
+                            <span class="cr-save-icon" aria-hidden="true">&#9825;</span> Save
+                        </button>
+                        <button type="button" class="cr-job-share" id="detailsShareBtn">Share</button>
+                    </div>
+                    <div class="cr-details-primary-actions">
+                        <button type="button" class="btn btn-outline cr-ripple" id="detailsCloseBtn2">Close</button>
+                        <button type="button" class="btn btn-solid cr-ripple" id="detailsApplyBtn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         JOB COMPARISON — floating bar + modal
+         ============================================================ -->
+    <div class="cr-compare-bar" id="compareBar" hidden>
+        <p><span id="compareCount">0</span> of 2 jobs selected to compare</p>
+        <div class="cr-compare-bar-actions">
+            <button type="button" class="btn btn-outline cr-ripple" id="compareClearBtn">Clear</button>
+            <button type="button" class="btn btn-solid cr-ripple" id="compareNowBtn" disabled>Compare Now</button>
+        </div>
+    </div>
+
+    <div class="cr-modal-overlay" id="compareOverlay" hidden>
+        <div class="cr-modal cr-modal--compare" role="dialog" aria-modal="true" aria-labelledby="compareTitle">
+            <button type="button" class="cr-modal-close" id="compareCloseBtn" aria-label="Close comparison">&times;</button>
+            <div class="cr-modal-view">
+                <div class="cr-modal-head">
+                    <p class="eyebrow">Job Comparison</p>
+                    <h2 id="compareTitle">Compare roles side by side.</h2>
+                </div>
+                <div class="cr-compare-table-wrap">
+                    <table class="cr-compare-table" id="compareTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast notifications -->
+    <div class="cr-toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <!-- Back to top -->
+    <button type="button" class="cr-back-to-top" id="backToTop" aria-label="Back to top" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l-7 7h4v7h6v-7h4z"/></svg>
+    </button>
+
     <!-- Job card template -->
     <template id="jobCardTemplate">
         <article class="cr-job-card" data-reveal>
+            <div class="cr-job-badges"></div>
+            <button type="button" class="cr-job-save" aria-pressed="false" aria-label="Save job">
+                <span class="cr-save-icon" aria-hidden="true">&#9825;</span>
+            </button>
             <div class="cr-job-card-head">
                 <h3 class="cr-job-title"></h3>
                 <span class="cr-job-type"></span>
@@ -608,11 +774,29 @@
             </ul>
             <p class="cr-job-desc"></p>
             <div class="cr-job-skills"></div>
+            <div class="cr-job-sub-meta">
+                <span class="cr-job-applicants"></span>
+                <span class="cr-job-deadline"></span>
+            </div>
             <div class="cr-job-footer">
-                <span class="cr-job-posted"></span>
-                <button type="button" class="btn btn-solid cr-job-apply">Apply Now</button>
+                <label class="cr-job-compare">
+                    <input type="checkbox" class="cr-compare-checkbox">
+                    <span>Compare</span>
+                </label>
+                <div class="cr-job-footer-actions">
+                    <button type="button" class="cr-job-share" aria-label="Share job">Share</button>
+                    <button type="button" class="btn btn-solid cr-job-apply cr-ripple">View Details</button>
+                </div>
             </div>
         </article>
+    </template>
+
+    <!-- Recently viewed mini-card template -->
+    <template id="recentCardTemplate">
+        <button type="button" class="cr-recent-card">
+            <span class="cr-recent-card-title"></span>
+            <span class="cr-recent-card-meta"></span>
+        </button>
     </template>
 
     <script src="js/navbar.js" defer></script>
